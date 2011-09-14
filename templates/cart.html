@@ -1,0 +1,19 @@
+{% if request.user.is_authenticated %}
+<div id="cart">
+	<div id="cart_heading"><a href="/show_cart/"><strong>Количка</strong></a></div>
+	{% if not cart.is_empty %}
+				<table class="cart_items">
+		{% for item in cart.cartitem_set.all %}
+		<tr><td>{{item.quantity}} x <a href="/product_info/{{item.product.id}}/">{{ item.product.name|truncatewords:2 }}</a></td>
+			<td>{{item.price}}</td></tr>
+		{% endfor %}
+		<tr><td>Общо:</td><td>{{ cart.total }} </td></tr>
+	</table>
+	<a class="highlight" href="/order/">Към поръчка</a>
+	{% else%}
+	<p>
+	Количката ви е празна.
+	</p>
+	{% endif %}
+</div>
+{% endif %}

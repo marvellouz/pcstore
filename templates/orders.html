@@ -1,0 +1,25 @@
+{% extends "template.html" %}
+{% block content %}
+{% for order in orders %}
+
+<div class="order_tables">
+	<h3>Поръчка</h3>
+<table class="order">
+	<tr class="head_row"><td> Статус </td><td>Адрес</td><td>Куриер</td>
+		<td> Начин на плащане </td><td> Дата на поръчване </td></tr>
+
+	<tr><td>{{ order.status}}</td><td>{{ order.address }}</td><td>{{ order.courier }}</td>
+		<td>{{ order.pay_method }}</td><td>{{ order.date }}</td></tr>
+</table>
+<table class="order">
+
+	<tr class="head_row"><td>Продукт</td><td>Количество</td><td>Единична цена</td><td>Общо</td></tr>
+	{% for item in order.orderitem_set.all %}
+
+	<tr><td>{{ item.product.name }}</td><td>{{ item.quantity }}</td><td>{{ item.price }}</td><td>{{ item.item_price }}</td></tr>
+	{% endfor %}
+</table>
+Общо: {{ order.total }}
+</div>
+	{% endfor %}
+{% endblock %}

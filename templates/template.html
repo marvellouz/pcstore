@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="bg" lang="bg">
+<head>
+	<title>{% block title %} PC Store {% endblock %}</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<link rel="stylesheet" href="/site_media/style.css" type="text/css" media="screen" />
+
+</head>
+
+<body>
+		<div id="header">
+			<h1 id="pcstore"><a href="/">PC Store</a></h1>
+			<div id="log">
+				{% if not request.user.is_authenticated %}
+				<a href="/login/">Вход</a><br />
+				<a href="/registration/">Регистрация</a><br />
+				{% else %}
+				Здравейте {{ request.user.first_name }}! <br /> 
+				<a href="/my_orders/">Моите поръчки</a> <br />
+				<a href="/logout/">Изход</a>
+				{% endif %}
+			</div>
+
+		</div>
+
+	<div id="main">
+		<div id="hmenu">
+			{% url views.index as index %}<a href="{{index}}" class="hitem">Начало</a>
+			{% url views.about as about %}<a href="{{about}}" class="hitem">За нас</a>
+			{% url views.contacts as contacts %} <a href="{{contacts}}" class="hitem">Контакти</a>
+			{% url views.howto as howto %}<a href="{{howto}}" class="hitem">Как да купим</a>
+
+		</div>
+
+		<div id="vmenu">
+			<ul id="list_menu">
+				{% for category in categories %}
+				<li> <a href="{% url views.products category.id %}" class="vitem">{{category}}</a></li>
+				{% endfor %}
+			</ul>
+			{% if not request.user.is_authenticated %}
+			<form action="/login/" method="POST" id="menu_login">
+				<p><label for="id_username">Име:</label>
+				<input id="id_username" type="text" name="username" maxlength="20" /></p>
+				<p><label for="id_password">Парола:</label>
+				<input type="password" id="id_password" type="text" name="password" maxlength="20" /></p>
+			<input type="submit" value="Влез" />
+			</form>
+			{% endif %}
+		</div>
+
+
+
+		<div id="right">
+			{% include "cart.html" %}
+
+			<a href="http://www.hp.com" target=_blank><img src="http://www.most.bg/i/logo_hp.jpg" width="137" height="54" border="0" /></a><br />
+			<a href="http://www.lge.com" target=_blank><img src="http://most.bg/i/logo_lg.jpg" width="137" height="48" border="0" /></a><br />
+			<a href="http://www.benq.com" target=_blank><img src="http://most.bg/i/logo_benq.jpg" width="137" height="50" border="0" /></a><br />
+			<a href="http://www.amd.com" target=_blank><img src="http://most.bg/i/logo_amd.jpg" width="137" height="46" border="0" /></a><br />
+			<a href="http://www.asus.com" target=_blank><img src="http://most.bg/i/logo_asus.jpg" width="137" height="46" border="0" /></a><br />
+			<a href="http://kodak.most.bg" target=_blank><img src="http://hp.most.bg/i/klogo.gif"   border="0" /></a>
+
+		</div>
+
+		<div id="content">
+			{% if flash %}
+				<div id="flash">
+					{{ flash }}
+				</div>
+			{% endif %}
+
+			{% block content %}
+			Because it’s such a common idiom to load a template, fill a Context, and return an HttpResponse
+			object with the result of the rendered template, Django provides a shortcut that lets you do those
+			things in one line of code. This shortcut is a function called render_to_response(), which lives
+			in the module django.shortcuts. Most of the time, you’ll be using render_to_response() rather
+			than loading templates and creating Context and HttpResponse objects manually.
+			Here’s the ongoing example rewritten to use...
+			{% endblock %}
+		</div>
+		<div id="footer">
+			(c) 2009 PC Store
+		</div>
+
+	</div>
+</body>
+
+</html>

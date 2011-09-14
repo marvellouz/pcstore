@@ -1,0 +1,212 @@
+body {
+	font-family: Georgia;
+	margin: 0;
+	padding: 0;
+	background-color: #011603;
+}
+
+#main {
+	min-width:55em;
+	background-color: white;
+	width: 100%;
+}
+
+#header {
+	padding: .5em;
+	height: 100px;
+	background: url('header.jpg');
+	background-repeat: repeat-x;
+	border-bottom: 2px dashed green;
+}
+
+#hmenu {
+	text-align: center;
+}
+
+.vitem {
+	margin: 4px;
+	text-decoration: none;
+	color: white;
+}
+
+.hitem {
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 2px;
+	text-decoration: none;
+	color: black;
+	border-bottom: 1px dashed #DD6E00;
+}
+
+
+#vmenu a {
+	display: block;
+}
+
+#vmenu li:hover, #vmenu a:hover {
+	text-decoration: underline;
+	color: white;
+}
+
+#hmenu a:hover {
+	color: white;
+	background-color: #47754C;
+}
+
+#list_menu li, .hitem a {
+	margin: 3px;
+	background-color: #47754C;
+	list-style-type: none;
+	padding: 3px;
+	border: 1px solid #71BA78;
+}
+
+#vmenu {
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+	width: 15%;
+	padding: 1em;
+	min-width: 10em;
+}
+
+.head_table {
+	font-weight: bold;
+}
+
+#content {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+	max-width: 43em;
+}
+
+#table_products {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+
+#table_products td {
+	padding: 5px;
+	border-bottom: 2px dotted green;
+}
+
+#right {
+	float: right;
+	width: 18%;
+	padding: 1em;
+}
+
+#footer {
+	text-align: center;
+	height: 47px;
+	background: url("footer.jpg");
+	background-repeat: repeat-x;
+	clear: both;
+	padding: 0;
+	border-top: 1px dashed green;
+}
+
+#product_image {
+	vertical-align: text-top;
+	width: 200px;
+	padding: 10px;
+}
+
+
+
+#price {
+	text-align: center;
+	width: 15%;
+	font-size: 30px;
+	color: #47754C;
+	padding: 5px;
+}
+
+#img_container {
+	width: 30%;
+	float: left;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: green;
+}
+
+#flash {
+	background-color: green;
+	padding: 2px;
+	border: 1px solid black;
+	color: white;
+	margin-bottom: 6px;
+}
+
+#log {
+	float: right;
+}
+
+#pcstore {
+	float: left;
+}
+
+#cart {
+	border: 1px dashed gray;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#cart_heading {
+	background:  #D3FFD4;
+	border-bottom: 1px solid green;
+	padding: 2px;
+}
+
+#product_desc {
+	vertical-align: text-top;
+	float:right;
+	width:60%;
+}
+
+#add_to_cart {
+	text-align: left;
+	margin-top: 4px;
+}
+
+#remove_from_cart {
+	text-align: left;
+	margin-top: 5px;
+}
+
+.order {
+	margin:3px;
+}
+.order td{
+	border-bottom: 1px dashed green;
+	margin: 3px;
+	padding: 3px;
+}
+
+.head_row {
+	font-weight: bold;
+}
+
+
+.order_tables {
+	padding: 5px;
+	margin-bottom: 5px;
+	border: 1px solid gray;
+}
+
+.highlight {
+	padding: 3px;
+	margin: 3px;
+	background-color: #FFF8A2;
+}

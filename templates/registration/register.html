@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+
+{% block content %}
+<h1>Създаване на профил</h1>
+<form action="/registration/" method="POST">
+	 {{ form.first_name.errors }}
+	 <p><label for="id_first_name">Име:<br /></label> {{ form.first_name }}</p>
+	  {{ form.last_name.errors }}
+	  <p><label for="id_last_name">Фамилия:<br /></label> {{ form.last_name }} </p>
+	   {{ form.user_name.errors }}
+	   <p><label for="id_user_name">Потребителско име:<br /></label> {{ form.user_name }} </p>
+	    {{ form.password.errors }}
+	    <p><label for="id_password">Парола:<br /></label> <input type="password" id="id_password" type="text" name="password" maxlength="20" /></p>
+	     {{ form.address.errors }}
+	     <p><label for="id_address">Адрес:<br /></label> {{ form.address }} </p>
+	     {{ form.email.errors }}
+	     <p><label for="id_email">Email:<br /></label> {{ form.email }} </p>
+<input type="submit" value="Регистрация" />
+</form>
+{% endblock %}
+

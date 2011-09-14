@@ -1,0 +1,23 @@
+{% extends "template.html" %}
+{% block content %}
+
+
+{% if products_list %}
+<table id="table_products">
+	<tr class="head_table">		
+		<td>име</td>
+		<td>цена</td>
+	</tr>
+	{% for product in products_list %}
+	<tr>
+		<td><a href="{% url views.product_info product.id %}">{{ product.name }}</a></td>
+		<td>{{product.price}}</td>
+	</tr>
+	{% endfor%}
+</table>
+
+{% else %}
+ 	Няма продукти в категорията.
+{% endif %}
+
+{% endblock %}

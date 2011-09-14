@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+{% block content %}
+
+<h1>Количка</h1>
+<div id="show_cart">
+	{% if not cart.is_empty %}
+		<table class="order">
+			<tr class="head_row"><td>Продукт</td><td>Количество</td>
+				<td>Единична цена</td><td>Общо</td><td></td></tr>
+
+		{% for item in cart.cartitem_set.all %}
+		<tr><td><a href="/product_info/{{item.product.id}}/">{{ item.product.name }}</a></td><td>{{ item.quantity }}</td>
+			<td>{{ item.product.price }}</td><td>{{ item.price }}</td><td>
+				<form action="/remove/{{ item.id  }}/" method="POST" id="remove_from_cart">
+				<input type="submit" value="Извади от количката" />
+				</form>
+		</td></tr>
+		{% endfor %}
+		<tr><td>Общо:</td><td>{{ cart.total }} </td></tr>
+	</table>
+	<a class="highlight" href="/order/">Към поръчка</a>
+	{% else%}
+	<p>
+		Количката ви е празна.
+	</p>
+	{% endif %}
+</div>
+
+{% endblock %}

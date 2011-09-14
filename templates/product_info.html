@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% block content %}
+<div>
+	
+	<div id="img_container">
+		<img src="/site_media/default.jpg" id="product_image" />
+	</div>
+
+	<div id="product_desc">
+		<h3>{{product.name}}</h3>
+		<p>{{ product.description }}</p>
+		<span id="price">{{ product.price }} USD</span>
+		{% if request.user.is_authenticated %}	
+			<form action="/product_info/{{ product.id }}/" method="POST" id="add_to_cart">
+				{{ form.quantity.errors }}
+				<p><label for="id_quantity">Количество:<br /></label>
+					<input type="text" size="3" name="quantity" id="id_quantity" value="1" />
+				</p>
+				<input type="submit" value="Добави в количката" />
+			</form>
+			{% if item %}
+				<form action="/remove/{{ item.id  }}/" method="POST" id="remove_from_cart">
+				<input type="submit" value="Извади от количката" />
+				</form>
+			{% endif %}
+		{% else %}
+			<p>
+			Ако искате да пазарувате трябва да имате <strong> <a href="/registration/">регистрация</a></strong>.
+			</p>
+		{% endif %}
+	</div>
+
+</div>
+{% endblock %}
+

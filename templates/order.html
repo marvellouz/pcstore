@@ -1,0 +1,25 @@
+{% extends "template.html" %}
+{% block content %}
+	<form action="/order/" id="create_order" method="POST">
+		<p>
+			{{ form.address.errors }}
+			<label for="id_address">Адрес:</label><br />
+			<input id="id_address" value="{{ request.user.userprofile.address }}" type="text" name="address" maxlength="300" />
+		</p>
+		<p>
+			{{ form.courier.errors }}
+			<label for="id_courier">Куриер:</label><br />
+			{{ form.courier }}
+		</p>		
+		<p>
+			{{ form.pay_method.errors }}
+			<label for="id_pay_method">Начин на плащане:</label><br />
+			{{ form.pay_method }}
+		</p>
+
+
+
+		<input type="submit" value="Поръчай">
+	</form>
+
+{% endblock %}
